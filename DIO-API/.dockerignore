@@ -1,0 +1,49 @@
+# Diretórios bin e obj
+bin/
+obj/
+
+# Configurações de desenvolvimento específicas do IDE
+.vscode/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Arquivos de logs
+*.log
+
+# Configurações de build e cache
+.vs/
+.vscode/
+_build/
+tmp/
+*.csproj.user
+
+# Diretórios de pacotes NuGet
+packages/
+*.nupkg
+*.snupkg
+
+# Diretórios de dependências globais e locais do .NET Core
+.global.json
+.nuget/packages/
+.nuget/fallbackfolders/
+
+# Configurações específicas de user secrets do .NET
+secrets.json
+*.secrets
+
+# Arquivos temporários e de backup do sistema operacional
+*.tmp
+*.swp
+*.bak
+*.old
+
+# Configurações específicas do npm (se aplicável)
+node_modules/
+npm-debug.log
+
+# Docker
+Dockerfile
+docker-compose*
