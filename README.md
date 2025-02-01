@@ -4,7 +4,7 @@ Bem vindo ao Repositório do Bootcamp sobre a certificação do Azure (AZ-204)
 
 Aqui estão alguns dos projetos e códigos que desenvolvi por esse Bootcamp da DIO
 
-[HTTP Validade CPF](./httpValidaCPF): Algoritmo de verificação e validação de se um CPF é válido ou não usando o Azure Functions
+[HTTP Validador de CPF](./httpValidaCPF): Algoritmo de verificação e validação de se um CPF é válido ou não usando o Azure Functions
 
 [API no Azure](./DIO-API): Criação de uma API de C# pelo .NET com Docker e uso da hospedagem do Azure para integrar na internet
 
