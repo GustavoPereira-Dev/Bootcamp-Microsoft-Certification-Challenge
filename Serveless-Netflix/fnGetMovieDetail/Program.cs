@@ -16,5 +16,4 @@ builder.Services.AddSingleton(s =>
    return new CosmosClient(connectionString);
 );
 
-
 builder.Build().Run();

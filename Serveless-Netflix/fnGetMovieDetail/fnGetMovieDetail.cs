@@ -5,26 +5,26 @@ using Microsoft.AspNetCore.Mvc;
 using Task;
 using MovieResult;
 
-namespace getAllMovies
+namespace fnGetMovieDetail
 {
-    public class fnGetAllMovies
+    public class fnGetMovieDetail
     {
-        private readonly ILogger<fnGetAllMovies> _logger;
+        private readonly ILogger<fnGetMovieDetail> _logger;
 
-        public fnGetAllMovies(ILogger<fnGetAllMovies> logger)
+        public fnGetMovieDetail(ILogger<fnGetMovieDetail> logger)
         {
             _logger = logger;
             _cosmosClient = cosmosClient;
         }
 
-        [Function("all")]
+        [Function("detail")]
         public async Task<HttpResponseData> Run([HttpTrigger(AuthorizationLevel.Function, "get")] HttpRequestData req)
         {
             _logger.LogInformation("C# HTTP trigger function processed a request.");
             var container = _cosmosClient.GetContainer("DioFlixDB", "movies");
             var id = req.Query["id"];
-            var query = $"SELECT * FROM c";
-            var queryDefinition = new QueryDefinition(query);
+            var query = $"SELECT * FROM c WHERE c.id = @id";
+            var queryDefinition = new QueryDefinition(query).WithParameter("@id", id);
             var result = container.GetItemQueryIterator<MovieResult>(queryDefinition);
             var results = new List<MovieResult>();
 
@@ -37,7 +37,7 @@ namespace getAllMovies
             }
 
             var responseMessage = req.CreateResponse(System.Net.HttpStatusCode.OK);
-            await responseMessage.WriteAsJsonAsync(results;
+            await responseMessage.WriteAsJsonAsync(results.FirstOrDefault());
 
             return responseMessage;
         }

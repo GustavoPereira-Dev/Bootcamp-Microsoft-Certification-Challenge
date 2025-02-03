@@ -10,4 +10,8 @@ builder.ConfigureFunctionsWebApplication();
 //     .AddApplicationInsightsTelemetryWorkerService()
 //     .ConfigureFunctionsApplicationInsights();
 
+builder.Services.Configure<KestrelServerOptions>(options =>
+{
+    options Limits.MaxRequestBodySize = 104857600; // 100 MB
+});
 builder.Build().Run();
